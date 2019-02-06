@@ -1,0 +1,7 @@
+{"TransactionNumber": "e97c2295-3fd4-4422-9a77-7597282aa4be","TransactionType": "EndSync","TransactionDateTime": "2018-06-21T18:00:00.000","ViewName": "ECOM_OH","ViewConfigurationName": "ECOM_OH","SyncCount": 4,"TotalPages": 1,"TotalCount": 4}
+
+{"TransactionNumber": "e97c2295-3fd4-4422-9a77-7597282aa4be","TransactionType": "EndSync","TransactionDateTime": "2018-06-21T18:00:00.000","ViewName": "ECOM_OH","ViewConfigurationName": "ECOM_OH","SyncCount": 4,"TotalPages": 1,"TotalCount": 4}
+
+{"TransactionNumber": "e97c2295-3fd4-4422-9a77-7597282aa4be","TransactionType": "EndSync","TransactionDateTime": "2018-06-21T18:00:00.000","ViewName": "ECOM_OH","ViewConfigurationName": "ECOM_OH","SyncCount": 4,"TotalPages": 1,"TotalCount": 4}
+
+{"TransactionNumber": "e97c2295-3fd4-4422-9a77-7597282aa4be","TransactionType": "EndSync","TransactionDateTime": "2018-06-21T18:00:00.000","ViewName": "ECOM_OH","ViewConfigurationName": "ECOM_OH","SyncCount": 4,"TotalPages": 1,"TotalCount": 4}

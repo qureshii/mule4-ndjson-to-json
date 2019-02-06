@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:file="http://www.mulesoft.org/schema/mule/file"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="80b29b46-ad79-4ead-9990-227c762365b5" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="ndjson-to-jsonFlow" doc:id="3dc135c2-e959-4925-9edf-7ea7b49315f4" >
+		<http:listener doc:name="Listener" doc:id="4ad3cfb2-4929-4eff-991b-d4e8a0792fce" config-ref="HTTP_Listener_config" path="/"/>
+		<file:read doc:name="Read" doc:id="f8da6438-80ef-4153-8313-4964d6adefd0" path="#[p('app.home') as String ++ server.fileSeparator ++ &quot;ndjson.txt&quot;]" outputMimeType="text/plain"/>
+		<ee:transform doc:name="Transform Message" doc:id="d03a7000-183e-489f-a891-dce574a39fbd" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+ output application/json
+ ---
+ (payload splitBy("\n")) filter not (isBlank($)) map read($,'application/json')]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>
